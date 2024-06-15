@@ -55,7 +55,7 @@ document.addEventListener('keydown', function(event) {
 
         switch (command) {
             case 'help':
-                response = 'Available commands: <br> - help <br> - clear <br> - about me <br> - github <br> - projects';
+                response = 'Available commands: ° - help ° - clear ° - about me ° - github ° - projects';
                 break;
             case 'clear':
                 commands.innerHTML = '> Type "help" for a list of commands.<p></p><input type="text" id="command"/>';
@@ -69,7 +69,7 @@ document.addEventListener('keydown', function(event) {
                 response = 'Opening GitHub...<p></p>> Type "help" for a list of commands.';
                 break;
             case 'projects':
-                response = 'Projects: <br> 1 - bloCks_ <br> 2 - chat <br> 3 - JScraft <br> 4 - rizzer <br> 5 - shoes <br> choose a project by typing its number.';
+                response = 'Projects: ° 1 - bloCks_ ° 2 - chat ° 3 - JScraft ° 4 - rizzer ° 5 - shoes ° choose a project by typing its number.';
                 projects = true;
                 break;
             case '1':
@@ -130,9 +130,21 @@ document.addEventListener('keydown', function(event) {
         if (response) {
             commands.removeChild(document.getElementById('command'));
             commands.innerHTML += '> ' + command + '<br>';
-            commands.innerHTML += response + '<p></p>';
-            commands.innerHTML += '<input type="text" id="command"/>';
-            document.getElementById('command').focus();
+            let delay = 0;
+            response.split('').forEach((char, index) => {
+                setTimeout(() => {
+                    if (char === '°') {
+                        commands.innerHTML += '<br>';
+                    }
+                    else commands.innerHTML += char;
+                    if (index === response.length - 1) {
+                        commands.innerHTML += '<p></p>';
+                        commands.innerHTML += '<input type="text" id="command"/>';
+                        document.getElementById('command').focus();
+                    }
+                }, delay);
+                delay += 10;
+            });
         }
     }
 });
