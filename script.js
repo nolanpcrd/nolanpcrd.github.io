@@ -66,7 +66,7 @@ document.addEventListener('keydown', function(event) {
                 break;
             case 'github':
                 window.open('https://github.com/nolanpcrd', '_blank');
-                response = 'Opening GitHub...<p></p>> Type "help" for a list of commands.';
+                response = 'Opening GitHub...*> Type "help" for a list of commands.';
                 break;
             case 'projects':
                 response = 'Projects: ° 1 - bloCks_ ° 2 - chat ° 3 - JScraft ° 4 - rizzer ° 5 - shoes ° choose a project by typing its number.';
@@ -75,7 +75,7 @@ document.addEventListener('keydown', function(event) {
             case '1':
                 if (projects) {
                     window.open('https://nolanpcrd.github.io/bloCks_', '_blank');
-                    response = 'Opening project "bloCks_"...<p></p>> Type "help" for a list of commands.';
+                    response = 'Opening project "bloCks_"...*> Type "help" for a list of commands.';
                     projects = false;
                 }
                 else {
@@ -85,7 +85,7 @@ document.addEventListener('keydown', function(event) {
             case '2':
                 if (projects) {
                     window.open('https://nolanpcrd.github.io/chatbot-without-ai', '_blank');
-                    response = 'Opening project "chat"...<p></p>> Type "help" for a list of commands.';
+                    response = 'Opening project "chat"...*> Type "help" for a list of commands.';
                     projects = false;
                 }
                 else {
@@ -95,7 +95,7 @@ document.addEventListener('keydown', function(event) {
             case '3':
                 if (projects) {
                     window.open('https://nolanpcrd.github.io/JScraft', '_blank');
-                    response = 'Opening project "JScraft"...<p></p>> Type "help" for a list of commands.';
+                    response = 'Opening project "JScraft"...*> Type "help" for a list of commands.';
                     projects = false;
                 }
                 else {
@@ -105,7 +105,7 @@ document.addEventListener('keydown', function(event) {
             case '4':
                 if (projects) {
                     window.open('https://nolanpcrd.github.io/rizzer', '_blank');
-                    response = 'Opening project "rizzer"...<p></p>> Type "help" for a list of commands.';
+                    response = 'Opening project "rizzer"...*> Type "help" for a list of commands.';
                     projects = false;
                 }
                 else {
@@ -115,7 +115,7 @@ document.addEventListener('keydown', function(event) {
             case '5':
                 if (projects) {
                     window.open('https://nolanpcrd.github.io/shoes', '_blank');
-                    response = 'Opening project "shoes"...<p></p>> Type "help" for a list of commands.';
+                    response = 'Opening project "shoes"...*> Type "help" for a list of commands.';
                     document.getElementById('command').focus();
                     projects = false;
                 }
@@ -135,6 +135,9 @@ document.addEventListener('keydown', function(event) {
                 setTimeout(() => {
                     if (char === '°') {
                         commands.innerHTML += '<br>';
+                    }
+                    else if (char === '*') {
+                        commands.innerHTML += '<p></p>';
                     }
                     else commands.innerHTML += char;
                     if (index === response.length - 1) {
